@@ -23,7 +23,7 @@
         (item.type == "basic" and
         item.name not in zpools.stdout and
         item.state == "present") and
-        item.devices[0] not in zpool_devices.stdout and
+        (item.devices[0]|basename) not in zpool_devices.stdout and
         item.action|lower == "create"
 
 - name: manage_zfs | adding basic zpool(s)
